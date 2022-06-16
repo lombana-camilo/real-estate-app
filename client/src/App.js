@@ -1,7 +1,6 @@
-
 function App() {
   return (
-    <h1>App</h1>
+    <div className="bg-bg h-screen">App</div>
   );
 }
 

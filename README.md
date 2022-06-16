@@ -29,38 +29,33 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 - Filtering options
 - Area to display the listed properties
 
-### `For Rent Page`
-- Display properties for rent
-- Filtering options
-
-### `For Sale Page`
-- Display properties for rent
-- Filtering options
-
 ### `Details Page`
 - Shows all information about a specific ad
+
+### `Signup /Login Pages`
+- Dynamic controlled form to create or login a user
 
 ### `Create Ad Page`
 - Dynamic controlled form to create or delete a property ad
 
 ## Backend - Routes
-#### GET /properties
+#### GET /properties (gets both api and db properties)
 #### GET /properties?search{params}
 #### GET /properties/{idProp}
 #### POST /properties
+#### DELETE /properties/:id
 
 <!-- - [x] Basic UI prototype -->
 <!-- - [x] Separate into react components -->
-<!-- - [x] Call API to retrieve data -->
 <!-- - [x] Connect API's data to components using hooks -->
 <!-- - [ ] Create interactivity -->
 
 
 ## Current Progress
 ### `Backend`
-- [ ] DB Models
-- [ ] DB Relations
-- [ ] Server Routing
+- [x] Set DB Models
+<!-- - [ ] Set DB Relations -->
+- [x] Server Routing - Fetch API
 ### `Frontend`
 - [ ] Landing
 - [ ] Home

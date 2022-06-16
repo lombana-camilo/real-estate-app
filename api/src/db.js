@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import { Sequelize,Op } from "sequelize";
 import 'dotenv/config'
 import Property from "./models/Property.js"
 
@@ -13,4 +13,4 @@ Property(db)
 // .then(()=>console.log("Connected to database"))
 // .catch(error=> console.log(error))
 
-export default db
+export {db,Op};
