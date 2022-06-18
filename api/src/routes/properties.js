@@ -9,34 +9,41 @@ const { Property } = db.models;
 router.get("/", async (req, res) => {
   const queries = req.query;
   const allAdsAPI = await fetchAPIProperties(queries);
-  // const myad = await Property.create({
-  //   title: "My ad",
-  //   purpose: "for-sale",
-  //   price: 300000,
-  //   rentFrequency: "monthly",
-  //   rooms: 18,
-  //   baths: 3,
-  // });
-
-  const {
-    priceMin,
-    priceMax,
-    areaMin,
-    roomsMin,
-    bathsMin,
-    purpose,
-    rentFrequency,
-  } = queries;
-  const allAdsDb = await Property.findAll({
-    where: {
-      price: { [Op.gte]: [priceMin, priceMax] },
-      area: { [Op.between]: [areaMin, areaMax] },
-      rooms: { [Op.between]: [roomsMin, roomsMax] },
-      baths: { [Op.between]: [bathsMin, bathsMax] },
+  let allAdsDb = null;
+  const myad = await Property.create({
+    title: "My ad",
+    purpose: "for-rent",
+    price: 550000,
+    rentFrequency: "yearly",
+    area: 1000,
+    rooms: 6,
+    baths: 4,
+  });
+  if (Object.keys(queries).length !== 0) {
+    const {
+      priceMin,
+      priceMax,
+      areaMin,
+      roomsMin,
+      bathsMin,
       purpose,
       rentFrequency,
-    },
-  });
+    } = queries;
+
+    allAdsDb = await Property.findAll({
+      where: {
+        price: { [Op.between]: [priceMin, priceMax] },
+        area: { [Op.gte]: areaMin },
+        rooms: { [Op.gte]: roomsMin },
+        baths: { [Op.gte]: bathsMin },
+        purpose,
+        rentFrequency,
+      },
+    });
+  } else {
+    allAdsDb = await Property.findAll();
+  }
+
   const totalAds = [...allAdsDb, ...allAdsAPI];
   res.json(totalAds);
 });

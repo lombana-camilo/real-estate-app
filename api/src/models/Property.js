@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 
 export default (db) => {
   db.define( "Property", {
-      id: {
+      externalID: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
@@ -15,10 +15,6 @@ export default (db) => {
       coverPhoto: {
         type: DataTypes.STRING,
         // allowNull: false,
-      },
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
       },
       purpose: {
         type: DataTypes.STRING,
@@ -34,12 +30,15 @@ export default (db) => {
       },
       rooms: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       baths: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       area: {
         type: DataTypes.FLOAT,
+        allowNull: false,
       },
     }
     // { timestamps: false }

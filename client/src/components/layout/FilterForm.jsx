@@ -8,8 +8,8 @@ const FilterBar = () => {
 
         {filterOptions.map((filter) => {
           return (
-            <select name={filter.name} c className="text-primary">
-              <option value={filter.placeholder} disabled selected>
+            <select name={filter.name} className="text-primary">
+              <option value={filter.placeholder} disabled defaultValue>
                 {filter.placeholder}
               </option>
               {filter.options.map((o) => {
