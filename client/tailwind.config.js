@@ -3,13 +3,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        transparent: "transparent",
-        bg: "#1A2238",
-        nav: "#051622",
-        primary: "#EBEBE0",
-        secondary: "#9DAAF2",
-        focus: "#FF6A3D",
+        bg: "#F1EEE9",
+        primary: "#15133C",
+        secondary: "#73777B",
+        focus: "#EC994B",
+        alert: "#A31616",
       },
+         fontFamily:{
+            'Montserrat': ['Montserrat']
+         }
     },
   },
   plugins: [],
