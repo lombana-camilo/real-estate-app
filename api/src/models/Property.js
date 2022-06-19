@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 
 export default (db) => {
   db.define( "Property", {
-      externalID: {
+      id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,

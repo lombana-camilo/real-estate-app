@@ -1,18 +1,16 @@
-
-const AdCard = ({allAds}) => {
-   return (
-      <div>
-      {allAds.map(ad=> {
-         return (
-         <div key={ad.externalID}>
-                  <h1> {ad.title} </h1>
-                  {ad.coverPhoto.url && <img src={ad.converPhoto.url} alt="property photo" /> }
-               </div>
-         )
+const AdCard = ({ allAds }) => {
+  return (
+    <div className="flex flex-wrap mx-9">
+      {allAds.map((ad) => {
+        return (
+          <div key={ad.id} className="flex flex-col  w-64 h-72 m-3">
+            <img src={ad.coverPhoto} alt="cover pic" className="object-cover h-52"/>
+            <h1> {ad.title} </h1>
+          </div>
+        );
       })}
-   
-      </div>
-   )
-}
+    </div>
+  );
+};
 
-export default AdCard
+export default AdCard;

@@ -10,15 +10,19 @@ router.get("/", async (req, res) => {
   const queries = req.query;
   const allAdsAPI = await fetchAPIProperties(queries);
   let allAdsDb = null;
-  const myad = await Property.create({
-    title: "My ad",
-    purpose: "for-rent",
-    price: 550000,
-    rentFrequency: "yearly",
-    area: 1000,
-    rooms: 6,
-    baths: 4,
-  });
+
+  // const myad = await Property.create({
+  //   title: "My ad",
+  //   purpose: "for-rent",
+  //   coverPhoto:
+  //     "https://external-preview.redd.it/1jEZXFcM5-yI2EBFQoDIP8VMUmlMxKzfFzUjtRV16Yc.jpg?auto=webp&s=a2c5bc3c89064f38dc0b8e102e89d3db2a420ea4",
+  //   price: 550000,
+  //   rentFrequency: "yearly",
+  //   area: 1000,
+  //   rooms: 6,
+  //   baths: 4,
+  // });
+
   if (Object.keys(queries).length !== 0) {
     const {
       priceMin,
