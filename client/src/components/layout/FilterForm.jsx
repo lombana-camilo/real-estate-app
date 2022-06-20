@@ -25,15 +25,15 @@ const FilterBar = () => {
 
 
   return (
-    <div className="p-4 m-9 bg-secondary text-bg font-medium">
+    <div className="p-4 mx-9 my-4 bg-secondary text-bg font-medium h-1/6">
       <h1>Filter Your Search</h1>
-      <form onChange={(e)=>onChange(e.target)}  className="flex flex-wrap h-28 content-around" >
+      <form onChange={(e)=>onChange(e.target)}  className="flex flex-wrap content-around" >
 
         {filterOptions.map((filter, key) => {
           return (
             <div key={key}>
               <select name={filter.name} className="text-primary" >
-                <option default > {filter.placeholder} </option>
+                <option default value={filter.default}> {filter.placeholder} </option>
                 {filter.options.map((opt,key) => {
                   return (
                     <option value={opt} key={key}> {opt} </option>);

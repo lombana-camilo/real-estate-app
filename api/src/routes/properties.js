@@ -1,5 +1,5 @@
 import { Router } from "express";
-import fetchAPIProperties from "./../utils/fetchAPIProperties.js";
+import fetchAPIAds from "./../utils/fetchAPIProperties.js";
 import fetchAPI from "./../utils/fetchAPI.js";
 import { db, Op } from "./../db.js";
 
@@ -7,49 +7,52 @@ const router = Router();
 const { Property } = db.models;
 
 router.get("/", async (req, res) => {
-  const queries = req.query;
-  const allAdsAPI = await fetchAPIProperties(queries);
-  let allAdsDb = null;
+  try {
+    const queries = req.query;
+    const allAdsAPI = await fetchAPIAds(queries);
+    let allAdsDb = null;
 
-  // const myad = await Property.create({
-  //   title: "My ad",
-  //   purpose: "for-rent",
-  //   coverPhoto:
-  //     "https://external-preview.redd.it/1jEZXFcM5-yI2EBFQoDIP8VMUmlMxKzfFzUjtRV16Yc.jpg?auto=webp&s=a2c5bc3c89064f38dc0b8e102e89d3db2a420ea4",
-  //   price: 550000,
-  //   rentFrequency: "yearly",
-  //   area: 1000,
-  //   rooms: 6,
-  //   baths: 4,
-  // });
+    // const myad = await Property.create({
+    //   title: "My ad",
+    //   purpose: "for-rent",
+    //   coverPhoto:
+    //     "https://external-preview.redd.it/1jEZXFcM5-yI2EBFQoDIP8VMUmlMxKzfFzUjtRV16Yc.jpg?auto=webp&s=a2c5bc3c89064f38dc0b8e102e89d3db2a420ea4",
+    //   price: 550000,
+    //   rentFrequency: "yearly",
+    //   area: 1000,
+    //   rooms: 6,
+    //   baths: 4,
+    // });
 
-  if (Object.keys(queries).length !== 0) {
-    const {
-      priceMin,
-      priceMax,
-      areaMin,
-      roomsMin,
-      bathsMin,
-      purpose,
-      rentFrequency,
-    } = queries;
-
-    allAdsDb = await Property.findAll({
-      where: {
-        price: { [Op.between]: [priceMin, priceMax] },
-        area: { [Op.gte]: areaMin },
-        rooms: { [Op.gte]: roomsMin },
-        baths: { [Op.gte]: bathsMin },
+    if (Object.keys(queries).length !== 0) {
+      const {
+        priceMin,
+        priceMax,
+        areaMin,
+        roomsMin,
+        bathsMin,
         purpose,
         rentFrequency,
-      },
-    });
-  } else {
-    allAdsDb = await Property.findAll();
-  }
+      } = queries;
 
-  const totalAds = [...allAdsDb, ...allAdsAPI];
-  res.json(totalAds);
+      allAdsDb = await Property.findAll({
+        where: {
+          price: { [Op.between]: [priceMin, priceMax] },
+          area: { [Op.gte]: areaMin },
+          rooms: { [Op.gte]: roomsMin },
+          baths: { [Op.gte]: bathsMin },
+          purpose,
+          rentFrequency,
+        },
+      });
+    } else {
+      allAdsDb = await Property.findAll();
+    }
+    const totalAds = [...allAdsDb, ...allAdsAPI];
+    res.json(totalAds);
+  } catch (error) {
+      res.status(404).send("error from routing")
+  }
 });
 
 router.get("/:id", async (req, res) => {

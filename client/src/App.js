@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="h-fit bg-bg text-primary font-Montserrat ">
+    <div className="h-screen bg-bg text-primary font-Montserrat ">
       <Nabvar />
       <FilterForm />
       <Routes>
