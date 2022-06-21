@@ -1,6 +1,7 @@
 import AdCard from "./AdCard";
 import NotFound from "./NotFound";
 import IsLoading from "./IsLoading";
+import FilterForm from "./../layout/FilterForm";
 import { useSelector } from "react-redux";
 
 const AdsList = () => {
@@ -8,6 +9,7 @@ const AdsList = () => {
 
   return (
     <div>
+      <FilterForm />
       {isLoading ? (
         <IsLoading />
       ) : allAds.length === 0 ? (

@@ -1,16 +1,16 @@
 import Nabvar from "./components/layout/Navbar";
 import AdsList from "./components/Ads/AdsList";
 import Footer from "./components/layout/Footer";
-import FilterForm from "./components/layout/FilterForm";
+import Details from "./components/Ads/Details"
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="h-screen bg-bg text-primary font-Montserrat ">
+    <div >
       <Nabvar />
-      <FilterForm />
       <Routes>
-        <Route path="/" element={<AdsList />} />
+        <Route path="/properties" element={<AdsList />} />
+        <Route path="/properties/:id" element={<Details />} />
       </Routes>
       <Footer />
     </div>

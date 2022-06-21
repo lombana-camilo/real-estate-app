@@ -1,5 +1,6 @@
 import { Router } from "express";
-import fetchAPIAds from "./../utils/fetchAPIProperties.js";
+import fetchAPIAds from "./../utils/fetchAPIAds.js";
+import fetchDetails from "./../utils/fetchDetails.js";
 import fetchAPI from "./../utils/fetchAPI.js";
 import { db, Op } from "./../db.js";
 
@@ -22,6 +23,13 @@ router.get("/", async (req, res) => {
     //   area: 1000,
     //   rooms: 6,
     //   baths: 4,
+    //   contactName: "Camilo Lombana",
+    //   contactPhone: "+57317691168",
+    //   description: "Huge Mansion with pool",
+    //   photos: [
+    //     "https://www.latamairlines.com/content/dam/latamxp/sites/destinos/australia/hero/SYD.jpg",
+    //     "https://c4.wallpaperflare.com/wallpaper/146/971/634/tropical-beach-background-wallpaper-preview.jpg",
+    //   ],
     // });
 
     if (Object.keys(queries).length !== 0) {
@@ -51,13 +59,14 @@ router.get("/", async (req, res) => {
     const totalAds = [...allAdsDb, ...allAdsAPI];
     res.json(totalAds);
   } catch (error) {
-      res.status(404).send("error from routing")
+    res.status(404).send("error from routing");
   }
 });
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const apiId = await fetchAPI("detail", id);
+  const apiId = await fetchDetails(id);
+   // console.log(apiId)
   // sequelize queries respond with error instead of "" or null
   let dbId = "";
   try {

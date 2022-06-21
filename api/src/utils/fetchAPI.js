@@ -21,6 +21,7 @@ const fetchAPI = async (endpoint, queries) => {
       lang: "en",
     };
   }
+
   try {
     const { data } = await axios.request(options);
     return data;

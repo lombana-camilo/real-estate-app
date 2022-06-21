@@ -40,6 +40,19 @@ export default (db) => {
         type: DataTypes.FLOAT,
         allowNull: false,
       },
+      //Further Details
+      contactName:{
+         type:DataTypes.STRING,
+      },
+      contactPhone:{
+         type:DataTypes.STRING,
+      },
+      description:{
+         type:DataTypes.STRING
+      },
+      photos:{
+         type:DataTypes.ARRAY(DataTypes.STRING)
+      }
     }
     // { timestamps: false }
   );
