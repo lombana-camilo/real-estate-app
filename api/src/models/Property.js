@@ -53,7 +53,7 @@ export default (db) => {
       photos:{
          type:DataTypes.ARRAY(DataTypes.STRING)
       }
-    }
-    // { timestamps: false }
+    },
+    { timestamps: false }
   );
 };

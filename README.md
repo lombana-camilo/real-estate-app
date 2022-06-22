@@ -45,6 +45,9 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 #### POST /properties
 #### DELETE /properties/:id
 
+### authentication
+#### POST /users/signup
+#### POST /users/login
 <!-- - [x] Basic UI prototype -->
 <!-- - [x] Separate into react components -->
 <!-- - [x] Connect API's data to components using hooks -->
@@ -54,16 +57,16 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 ## Current Progress
 ### `Backend`
 - [x] Set DB Models
-<!-- - [ ] Set DB Relations -->
-- [x] Server Routing - Fetch API
+- [x] Set DB Relations
+- [x] Server Routing - Ads
+- [x] Server Routing - Authentication
 ### `Frontend`
 - [ ] Landing
-- [ ] Home
-- [ ] Search
-- [ ] Sort
-- [ ] Filters
+- [x] Home
+- [x] Filters
+- [ ] Authentication
 - [ ] Pagination
-- [ ] Creation Form
+- [x] Creation Form
 ### `Test`
 - [ ] Database
 - [ ] Models, rendering
