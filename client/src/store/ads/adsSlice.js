@@ -4,17 +4,25 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 export const getAllAds = createAsyncThunk(
   "ads/getAllAds",
   async (config = {}) => {
-    const { data } = await axios.get(
-      "http://localhost:3001/properties/",
-      config
-    );
+    const { data } = await axios.get( "http://localhost:3001/properties/", config);
     return data;
   }
 );
 
+export const getDbAds = createAsyncThunk("ads/getDbAds", async (email) => {
+  const { data } = await axios.get( `http://localhost:3001/properties/db/${email}`);
+   return data
+});
+
 export const getDetails = createAsyncThunk("ads/getDetails", async (id) => {
   const { data } = await axios.get(`http://localhost:3001/properties/${id}`);
-   return data
+  return data;
+});
+
+export const createAd = createAsyncThunk("ads/createAd", async (formAndEmail) => {
+   const {formDataWithPhotos, email} = formAndEmail
+  const { data } = await axios.post(`http://localhost:3001/properties/db/${email}`,formDataWithPhotos);
+  return data;
 });
 
 const adsSlice = createSlice({
@@ -26,7 +34,7 @@ const adsSlice = createSlice({
     isLoading: "",
   },
   extraReducers: {
-      //getAllAds
+    //getAllAds
     [getAllAds.pending]: (state) => {
       state.isLoading = true;
     },
@@ -37,7 +45,7 @@ const adsSlice = createSlice({
     [getAllAds.rejected]: (state) => {
       state.isLoading = false;
     },
-      //getDetails
+    //getDetails
     [getDetails.pending]: (state) => {
       state.isLoading = true;
     },
@@ -46,6 +54,28 @@ const adsSlice = createSlice({
       state.isLoading = false;
     },
     [getDetails.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    //getDbAds
+    [getDbAds.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getDbAds.fulfilled]: (state, action) => {
+      state.dbAds = action.payload;
+      state.isLoading = false;
+    },
+    [getDbAds.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    //createAd
+    [createAd.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [createAd.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.dbAds.push(action.payload)
+    },
+    [createAd.rejected]: (state) => {
       state.isLoading = false;
     },
   },

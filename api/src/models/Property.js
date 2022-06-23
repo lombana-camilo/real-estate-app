@@ -1,7 +1,9 @@
 import { DataTypes } from "sequelize";
 
 export default (db) => {
-  db.define( "Property", {
+  db.define(
+    "Property",
+    {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -41,18 +43,18 @@ export default (db) => {
         allowNull: false,
       },
       //Further Details
-      contactName:{
-         type:DataTypes.STRING,
+      contactName: {
+        type: DataTypes.STRING,
       },
-      contactPhone:{
-         type:DataTypes.STRING,
+      contactPhone: {
+        type: DataTypes.STRING,
       },
-      description:{
-         type:DataTypes.STRING
+      description: {
+        type: DataTypes.STRING,
       },
-      photos:{
-         type:DataTypes.ARRAY(DataTypes.STRING)
-      }
+      photos: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+      },
     },
     { timestamps: false }
   );

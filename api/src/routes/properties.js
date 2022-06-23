@@ -1,36 +1,16 @@
 import { Router } from "express";
 import fetchAPIAds from "./../utils/fetchAPIAds.js";
 import fetchDetails from "./../utils/fetchDetails.js";
-import fetchAPI from "./../utils/fetchAPI.js";
 import { db, Op } from "./../db.js";
 
 const router = Router();
-const { Property } = db.models;
+const { Property, User } = db.models;
 
 router.get("/", async (req, res) => {
   try {
     const queries = req.query;
     const allAdsAPI = await fetchAPIAds(queries);
     let allAdsDb = null;
-
-    // const myad = await Property.create({
-    //   title: "My ad",
-    //   purpose: "for-rent",
-    //   coverPhoto:
-    //     "https://external-preview.redd.it/1jEZXFcM5-yI2EBFQoDIP8VMUmlMxKzfFzUjtRV16Yc.jpg?auto=webp&s=a2c5bc3c89064f38dc0b8e102e89d3db2a420ea4",
-    //   price: 550000,
-    //   rentFrequency: "yearly",
-    //   area: 1000,
-    //   rooms: 6,
-    //   baths: 4,
-    //   contactName: "Camilo Lombana",
-    //   contactPhone: "+57317691168",
-    //   description: "Huge Mansion with pool",
-    //   photos: [
-    //     "https://www.latamairlines.com/content/dam/latamxp/sites/destinos/australia/hero/SYD.jpg",
-    //     "https://c4.wallpaperflare.com/wallpaper/146/971/634/tropical-beach-background-wallpaper-preview.jpg",
-    //   ],
-    // });
 
     if (Object.keys(queries).length !== 0) {
       const {
@@ -63,25 +43,40 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/db/:email", async (req, res) => {
+  const { email } = req.params;
+  const ads = await Property.findAll({
+    where: { UserEmail: email },
+  });
+  if (ads) {
+    res.send(ads);
+  } else {
+    res.status(404).send("No ads Found on that email");
+  }
+});
+
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const apiId = await fetchDetails(id);
-   // console.log(apiId)
   // sequelize queries respond with error instead of "" or null
   let dbId = "";
   try {
-    dbId = await Property.findOne({ where: { id: `${id}` } });
+    dbId = await Property.findOne({ where: { id } });
   } catch (err) {
     dbId = "";
   }
-  const found = dbId ? dbId.toJSON() : apiId ? apiId : null;
+  const found = dbId ? dbId : apiId ? apiId : null;
   res.json(found);
 });
 
-router.post("/", (req, res) => {
-  const newAd = req.body;
-  Property.create(newAd);
-  res.send("Posted!");
+router.post("/db/:email", async (req, res) => {
+  const formData = req.body;
+  const  {email}  = req.params;
+  const user = await User.findOne({ where: { email } });
+  const newAd = await Property.create(formData);
+  await user.addProperty(newAd);
+
+  res.send(newAd);
 });
 
 export default router;

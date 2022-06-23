@@ -12,7 +12,6 @@ const db = new Sequelize( `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_
 ModelProperty(db)
 ModelUser(db)
 
-
 //Relations
 const { Property, User } = db.models
 User.hasMany(Property)

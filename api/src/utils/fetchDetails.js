@@ -4,7 +4,6 @@ const fetchDetails = async (id = "") => {
   try {
     const apiAdDetails = await fetchAPI("detail", id);
 
-    // if (apiAdDetails.hits.length === 0) return []
     // Cleaning up data
 
     //Photos URLs as Array of strings
@@ -31,7 +30,8 @@ const fetchDetails = async (id = "") => {
     };
     return cleanApiDetails;
   } catch (error) {
-    console.log(error);
+      // console.log(error);
+      return ""
   }
 };
 
