@@ -25,6 +25,10 @@ export const createAd = createAsyncThunk("ads/createAd", async (formAndEmail) =>
   return data;
 });
 
+export const deleteAd = createAsyncThunk("ads/deleteAd", async (adId)=>{
+   await axios.delete(`http://localhost:3001/properties/db/${adId}`)
+})
+
 const adsSlice = createSlice({
   name: "ads",
   initialState: {
@@ -78,6 +82,7 @@ const adsSlice = createSlice({
     [createAd.rejected]: (state) => {
       state.isLoading = false;
     },
+      //deleteAd
   },
 });
 

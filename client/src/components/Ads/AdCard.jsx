@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const AdCard = ({ allAds }) => {
+const AdCard = ({ allAds, fromUser=false, removeAd }) => {
+
   return (
     <div className="flex flex-wrap mx-9">
       {allAds.map((ad) => {
@@ -11,6 +12,7 @@ const AdCard = ({ allAds }) => {
                   </Link>
                   <h2 className="text-primary font-semibold">${ad.price}</h2>
             <h1> {ad.title} </h1>
+                  {fromUser && <button onClick={()=>removeAd(ad.id)} className="text-alert font-semibold">Delete Ad</button> }
           </div>
         );
       })}

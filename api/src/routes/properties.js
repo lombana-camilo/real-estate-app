@@ -79,4 +79,10 @@ router.post("/db/:email", async (req, res) => {
   res.send(newAd);
 });
 
+router.delete("/db/:id",async (req,res)=>{
+   const {id} = req.params;
+   await Property.destroy({ where:{id} })
+   res.send("Deleted successfully")
+})
+
 export default router;
