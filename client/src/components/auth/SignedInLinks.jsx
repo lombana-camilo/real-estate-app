@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "./../../store/users/usersSlice.js";
 
-const SignedInLinks = () => {
+const SignedInLinks = ({currentUser}) => {
   const dispatch = useDispatch();
    const navigate = useNavigate()
 
@@ -14,8 +14,9 @@ const SignedInLinks = () => {
 
   return (
     <div className="flex gap-3">
+         <h2 className="text-primary font-normal">Welcome {currentUser.name}</h2>
       <Link to="/myAds">My Ads</Link>
-      <button onClick={onLogOut}>Logout</button>
+      <button onClick={onLogOut} className="text-alert">Logout</button>
     </div>
   );
 };

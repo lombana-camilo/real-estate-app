@@ -10,7 +10,7 @@ const Navbar = () => {
       <Link to="/properties">
         <h1 className=" text-2xl text-focus">Real Estate App</h1>
       </Link>
-      {currentUser.name ? <SignedInLinks /> : <SignedOutLinks />}
+      {currentUser.name ? <SignedInLinks currentUser={currentUser}/> : <SignedOutLinks />}
       <div></div>
     </nav>
   );

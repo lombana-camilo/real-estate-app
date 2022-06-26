@@ -10,6 +10,7 @@ Create a fullstack web application with authentication that enables the user to 
 * Node Js
 * Express
 * Sequelize, Postgress
+* Axios,bcrypt,redux-toolkit
 
 ### `API`
 

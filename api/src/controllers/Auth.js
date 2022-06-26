@@ -1,11 +1,15 @@
 import { db } from "./../db.js";
+import bcrypt from "bcrypt";
 const { User } = db.models;
 
 export const signup = async (req, res) => {
-  const userData = req.body;
+  const {name,email,password:realPassword} = req.body;
+   //Hashing password
+   const salt = await bcrypt.genSalt()
+   const password = await bcrypt.hash(realPassword,salt)
 
   try {
-    const newUser = await User.create(userData);
+    const newUser = await User.create({name,email,password});
     res.send(newUser);
   } catch (error) {
     res.status(500).send(error);
