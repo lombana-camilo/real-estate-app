@@ -23,7 +23,7 @@ const Details = () => {
                   <Splide className="h-2/6"
                      options={{
                         perPage:1,
-                        type: "loop",
+                        // type: "loop",
                         // height: "70vh",
                         width: "80vw",
                         autoHeight: true,

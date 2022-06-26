@@ -5,7 +5,7 @@ import { createAd } from "./../../store/ads/adsSlice.js";
 const CreateAdForm = () => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.users);
-  const [formData,setFormData] = useState({})
+  const [formData,setFormData] = useState({photos:[]})
 
    const onChange = (e)=>{
       setFormData(oldData => ({...oldData,[e.target.name]:e.target.value}))
@@ -13,17 +13,31 @@ const CreateAdForm = () => {
    const onSubmit = (e)=>{
       e.preventDefault();
       const email = currentUser.email
-      const formDataWithPhotos = {...formData,photos:[formData.coverPhoto]}
-      dispatch(createAd({formDataWithPhotos,email}))
+      const adData = {...formData,coverPhoto:formData.photos[0]}
+      dispatch(createAd({adData,email}))
+      setFormData({photos:[]})
    }
-  return <form onSubmit={onSubmit} onChange={onChange} className="flex gap-3 bg-secondary p-2 ">
+
+   const addPhoto = (e)=>{
+      e.preventDefault()
+      formData.coverPhoto && setFormData(oldData=>({...oldData,photos:[...oldData.photos,oldData.coverPhoto]}))
+      let photoInput = document.querySelector("input[name='coverPhoto']")
+      photoInput.value = ""
+   }
+  return <form onSubmit={onSubmit} onChange={onChange} className="flex gap-3 bg-secondary p-2 mx-9 rounded-md text-sm" >
          <div className="flex flex-col gap-2">
             <label>Title <input type="text" name="title" required/></label>
             <textarea name="description" cols="60" rows="4" placeholder="Describe your Property..." required></textarea>
-            <label>Cover Photo (Url) <input type="url" name="coverPhoto" placeholder="http://example.jpg" size="30" required/></label>
+         <div className="flex gap-2">
+            <input type="url" name="coverPhoto" placeholder="htttp://example.jpg" className="w-2/3" />
+            <button onClick={addPhoto}>Add Photo (URL)</button>
+         </div>
+            {formData.photos.map((photo,key)=>(
+               <span key={key}>{photo.slice(0,30)}...</span>
+            ))}
             <button>Submit</button>
          </div>
-         <div className="flex flex-wrap gap-2">
+         <div className="flex flex-wrap gap-4 content-center">
             <select name="purpose" required>
                <option value="" disabled selected>--Purpose--</option>
                <option value="for-sale">For Sale</option>

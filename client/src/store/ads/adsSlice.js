@@ -20,8 +20,8 @@ export const getDetails = createAsyncThunk("ads/getDetails", async (id) => {
 });
 
 export const createAd = createAsyncThunk("ads/createAd", async (formAndEmail) => {
-   const {formDataWithPhotos, email} = formAndEmail
-  const { data } = await axios.post(`http://localhost:3001/properties/db/${email}`,formDataWithPhotos);
+   const {adData, email} = formAndEmail
+  const { data } = await axios.post(`http://localhost:3001/properties/db/${email}`,adData);
   return data;
 });
 

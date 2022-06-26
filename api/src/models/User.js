@@ -5,12 +5,6 @@ export default (db) => {
   db.define(
     "User",
     {
-      // id: {
-      //   type: DataTypes.UUID,
-      //   defaultValue: DataTypes.UUIDV4,
-      //   primaryKey: true,
-      //   allowNull: false,
-      // },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,6 +13,7 @@ export default (db) => {
         type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
+        unique: true,
       },
       password: {
         type: DataTypes.STRING,
