@@ -14,6 +14,7 @@ export default (db) => {
         primaryKey: true,
         allowNull: false,
         unique: true,
+        isEmail: true,
       },
       password: {
         type: DataTypes.STRING,

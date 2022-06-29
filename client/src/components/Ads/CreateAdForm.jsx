@@ -5,7 +5,7 @@ import { createAd } from "./../../store/ads/adsSlice.js";
 const CreateAdForm = () => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.users);
-  const [formData,setFormData] = useState({photos:[]})
+  const [formData,setFormData] = useState({photos:[],purpose:"for-rent",rentFrequency:"yearly"})
 
    const onChange = (e)=>{
       setFormData(oldData => ({...oldData,[e.target.name]:e.target.value}))
@@ -39,20 +39,20 @@ const CreateAdForm = () => {
          </div>
          <div className="flex flex-wrap gap-4 content-center">
             <select name="purpose" required>
-               <option value="" disabled selected>--Purpose--</option>
+               <option defaultValue="for-sale">--Purpose--</option>
                <option value="for-sale">For Sale</option>
                <option value="for-rent" >For Rent</option>
             </select>
             <select name="rentFrequency" required>
-               <option value="" disabled selected>--Rent Frequency--</option>
+               <option value="" defaultValue="yearly" >--Rent Frequency--</option>
                <option value="yearly" >Yearly</option>
                <option value="monthly">Monthly</option>
                <option value="weekly">Weekly</option>
                <option value="dayly">Dayly</option>
             </select>
-            <label>Price (AED) <input type="text" name="price" size="10" required/></label>
-            <label>Rooms <input type="number" name="rooms" min="0" max="15" className="w-9" required/></label>
-            <label>Baths <input type="number" name="baths" min="0" max="10" className="w-9" required/></label>
+            <label>Price (AED) <input type="text"  name="price" size="10" required/></label>
+            <label>Rooms <input type="number" name="rooms" min="1" max="15" className="w-9" required/></label>
+            <label>Baths <input type="number" name="baths" min="1" max="10" className="w-9" required/></label>
             <label>Area (ft2) <input type="text" name="area" min="0" size="10" required/></label>
             <div className="flex gap-2">
                <label>Contact Name <input type="text" name="contactName" required/></label>

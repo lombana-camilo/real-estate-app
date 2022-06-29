@@ -1,32 +1,32 @@
-import axios from "axios";
+import axios from "./../../api/axios.js";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const getAllAds = createAsyncThunk(
   "ads/getAllAds",
   async (config = {}) => {
-    const { data } = await axios.get( "http://localhost:3001/properties/", config);
+    const { data } = await axios.get( "/properties/", config);
     return data;
   }
 );
 
 export const getDbAds = createAsyncThunk("ads/getDbAds", async (email) => {
-  const { data } = await axios.get( `http://localhost:3001/properties/db/${email}`);
+  const { data } = await axios.get( `/properties/db/${email}`);
    return data
 });
 
 export const getDetails = createAsyncThunk("ads/getDetails", async (id) => {
-  const { data } = await axios.get(`http://localhost:3001/properties/${id}`);
+  const { data } = await axios.get(`/properties/${id}`);
   return data;
 });
 
 export const createAd = createAsyncThunk("ads/createAd", async (formAndEmail) => {
    const {adData, email} = formAndEmail
-  const { data } = await axios.post(`http://localhost:3001/properties/db/${email}`,adData);
+  const { data } = await axios.post(`/properties/db/${email}`,adData);
   return data;
 });
 
 export const deleteAd = createAsyncThunk("ads/deleteAd", async (adId)=>{
-   await axios.delete(`http://localhost:3001/properties/db/${adId}`)
+   await axios.delete(`/properties/db/${adId}`)
 })
 
 const adsSlice = createSlice({

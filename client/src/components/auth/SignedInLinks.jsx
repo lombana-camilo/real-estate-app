@@ -15,7 +15,7 @@ const SignedInLinks = ({currentUser}) => {
   return (
     <div className="flex gap-3">
          <h2 className="text-primary font-normal">Welcome {currentUser.name}</h2>
-      <Link to="/myAds">My Ads</Link>
+      <Link to="/myAds" className="text-focus bg-primary rounded-lg px-2">My Ads</Link>
       <button onClick={onLogOut} className="text-alert">Logout</button>
     </div>
   );

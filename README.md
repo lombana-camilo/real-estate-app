@@ -60,7 +60,7 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 - [x] Set DB Models
 - [x] Set DB Relations
 - [x] Server Routing - Ads
-- [x] Server Routing - Authentication
+- [x] Server Routing - Authentication/Authorization
 ### `Frontend`
 - [ ] Landing
 - [x] Home
