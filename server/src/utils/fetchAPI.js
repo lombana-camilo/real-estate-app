@@ -16,8 +16,8 @@ const fetchAPI = async (endpoint, queries) => {
     options.params = {
       ...queries,
       locationExternalIDs: "5002",
-      hitsPerPage: "12",
-      page: "0",
+      hitsPerPage: "25",
+      // page: "0",
       lang: "en",
     };
   }

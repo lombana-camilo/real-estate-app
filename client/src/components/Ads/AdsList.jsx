@@ -1,7 +1,7 @@
-import AdCard from "./AdCard";
 import NotFound from "./NotFound";
 import IsLoading from "./IsLoading";
 import FilterForm from "./../layout/FilterForm";
+import CardsPagination from "./../layout/CardsPagination";
 import { useSelector } from "react-redux";
 
 const AdsList = () => {
@@ -15,7 +15,9 @@ const AdsList = () => {
       ) : allAds.length === 0 ? (
         <NotFound />
       ) : (
-        <AdCard allAds={allAds} />
+        <>
+          <CardsPagination allAds={allAds}/>
+        </>
       )}
     </div>
   );

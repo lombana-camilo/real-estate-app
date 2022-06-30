@@ -25,15 +25,19 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 * The user can use pagination to navigate through the results
 
 ## Frontend - Views
+### `Landing Page`
+- Page presentation
+
 ### `Main Page`
 - Search bar with authentication options
 - Filtering options
 - Area to display the listed properties
+- Pagination
 
 ### `Details Page`
 - Shows all information about a specific ad
 
-### `Signup /Login Pages`
+### `Signup and Login Pages`
 - Dynamic controlled form to create or login a user
 
 ### `Create Ad Page`
@@ -49,11 +53,6 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 ### authentication
 #### POST /users/signup
 #### POST /users/login
-<!-- - [x] Basic UI prototype -->
-<!-- - [x] Separate into react components -->
-<!-- - [x] Connect API's data to components using hooks -->
-<!-- - [ ] Create interactivity -->
-
 
 ## Current Progress
 ### `Backend`
@@ -62,12 +61,13 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 - [x] Server Routing - Ads
 - [x] Server Routing - Authentication/Authorization
 ### `Frontend`
-- [ ] Landing
+- [x] Landing
 - [x] Home
 - [x] Filters
-- [ ] Authentication
-- [ ] Pagination
+- [x] Authentication
+- [x] Pagination
 - [x] Creation Form
+- [ ] Responsive
 ### `Test`
 - [ ] Database
 - [ ] Models, rendering

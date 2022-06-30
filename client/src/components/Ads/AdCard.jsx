@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-const AdCard = ({ allAds, fromUser=false, removeAd }) => {
+const AdCard = ({ ads, fromUser=false, removeAd }) => {
 
   return (
     <div className="flex flex-wrap mx-9">
-      {allAds.map((ad) => {
+      {ads.map((ad) => {
         return (
           <div key={ad.id} className="flex flex-col w-64 h-72 m-3 bg-primary/10 justify-center items-center rounded-md p-2">
                   <Link to={`/properties/${ad.id}`} className="h-2/3 w-5/6">
