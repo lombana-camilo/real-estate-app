@@ -26,16 +26,16 @@ const CreateAdForm = () => {
    }
   return <form onSubmit={onSubmit} onChange={onChange} className="flex gap-3 bg-secondary p-2 mx-9 rounded-md text-sm" >
          <div className="flex flex-col gap-2">
-            <label>Title <input type="text" name="title" required/></label>
+            <label>Title <input type="text" name="title"  required/></label>
             <textarea name="description" cols="60" rows="4" placeholder="Describe your Property..." required></textarea>
          <div className="flex gap-2">
             <input type="url" name="coverPhoto" placeholder="htttp://example.jpg" className="w-2/3" />
-            <button onClick={addPhoto}>Add Photo (URL)</button>
+            <button className="border-primary bg-bg font-semibold rounded-md px-1 hover:bg-bg/70" onClick={addPhoto}>Add Photo URL</button>
          </div>
             {formData.photos.map((photo,key)=>(
                <span key={key}>{photo.slice(0,30)}...</span>
             ))}
-            <button>Submit</button>
+            <button className="text-bg hover:text-focus hover:bg-primary font-semibold bg-primary/70 rounded-sm">Submit</button>
          </div>
          <div className="flex flex-wrap gap-4 content-center">
             <select name="purpose" required>

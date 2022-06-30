@@ -25,14 +25,14 @@ const FilterBar = () => {
 
 
   return (
-    <div className="p-4 mx-9 mb-4 mt-12 bg-secondary text-bg font-medium h-1/6 rounded-md">
-      <h1>Filter Your Search</h1>
-      <form onChange={(e)=>onChange(e.target)}  className="flex flex-wrap content-around" >
+    <div className="p-4 mx-9 mb-4 mt-12 bg-primary text-bg font-medium h-1/6 rounded-md flex flex-col items-center ">
+      <h1 className="font-semibold text-bg text-xl">Filter Your Search</h1>
+      <form onChange={(e)=>onChange(e.target)}  className="flex flex-wrap content-around gap-1 font-semibold" >
 
         {filterOptions.map((filter, key) => {
           return (
             <div key={key}>
-              <select name={filter.name} className="text-primary" >
+              <select name={filter.name} className="text-primary text-sm bg-secondary hover:bg-bg font-semibold p-1 border border-gray-400 rounded shadow-xl " >
                 <option default value={filter.default}> {filter.placeholder} </option>
                 {filter.options.map((opt,key) => {
                   return (
