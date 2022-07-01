@@ -23,7 +23,7 @@ const MyAds = () => {
   return (
     <div className="mt-12 flex flex-col m-3">
       <CreateAdForm userEmail={currentUser.email} />
-      <AdCard allAds={dbAds} fromUser={true} removeAd={removeAd} />
+      <AdCard ads={dbAds} fromUser={true} removeAd={removeAd} />
     </div>
   );
 };
