@@ -3,8 +3,8 @@ import landingImg from "./../../assets/images/landing.jpg";
 const Landing = () => {
    const navigate = useNavigate()
   return (
-    <div className="h-screen flex">
-         <div className="w-1/2 bg-primary flex flex-col justify-center items-center text-center">
+    <div className="h-screen flex flex-col-reverse md:flex-row ">
+         <div className="h-2/3 md:h-full md:w-1/2 bg-primary flex flex-col justify-center items-center text-center">
             <h1 className="text-bg font-bold text-4xl mb-5">Buy/Rent and Sale Your Property with</h1>
             <h1 className="text-focus font-bold text-5xl">REAL ESTATE APP</h1>
             <p className="text-bg/70 text-xl ">Publish your property or find your dream place</p>
@@ -13,7 +13,7 @@ const Landing = () => {
                Get Started
             </button>
          </div>
-         <img src={landingImg} alt="" className="h-screen w-1/2"/>
+         <img src={landingImg} alt="" className="h-1/3 md:h-screen md:w-1/2"/>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import AdCard from "./../Ads/AdCard";
 const CardsPagination = ({ allAds }) => {
   let ads = [...allAds];
@@ -8,14 +8,15 @@ const CardsPagination = ({ allAds }) => {
   const [currPage, setCurrPage] = useState(0);
   const [currAds, setCurrAds] = useState([]);
 
-  let pages = useMemo(()=>[],[]);
+  let pages = []
   for (let i = 0; i < totalPages; i++) {
     pages.push(ads.splice(0, adsPerPage));
   }
+   // console.log(pages)
 
   useEffect(() => {
     setCurrAds(pages[0]);
-  }, [pages]);
+  }, []);
 
 const getPage = (index)=>{
       setCurrAds(pages[index])
