@@ -13,10 +13,12 @@ const SignedInLinks = ({currentUser}) => {
   };
 
   return (
-    <div className="flex gap-5">
-         <h2 className="text-primary font-normal">Welcome {currentUser.name}</h2>
-      <Link to="/myAds" className="text-focus bg-primary rounded-lg px-2">My Ads</Link>
-      <button onClick={onLogOut} className="text-alert">Logout</button>
+    <div className="flex flex-col md:flex-row md:gap-5 items-center ">
+         <h2 className="text-primary text-sm font-normal">Welcome {currentUser.name}</h2>
+         <div className="flex gap-2">
+            <Link to="/myAds" className="text-focus bg-primary rounded-lg px-2 mb-1">My Ads</Link>
+            <button onClick={onLogOut} className="text-alert">Logout</button>
+         </div>
     </div>
   );
 };

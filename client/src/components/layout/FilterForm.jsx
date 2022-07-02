@@ -25,7 +25,7 @@ const FilterBar = () => {
 
 
   return (
-    <div className="p-4 mx-9 mb-4 mt-12 bg-primary text-bg font-medium h-1/6 rounded-md flex flex-col items-center ">
+    <div className="p-2 md:p-4 mx-7 mb-4 mt-12 bg-primary text-bg font-medium h-1/6 rounded-md flex flex-col items-center ">
       <h1 className="font-semibold text-bg text-xl">Filter Your Search</h1>
       <form onChange={(e)=>onChange(e.target)}  className="flex flex-wrap content-around gap-1 font-semibold" >
 

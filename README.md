@@ -44,15 +44,15 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 - Dynamic controlled form to create or delete a property ad
 
 ## Backend - Routes
-#### GET /properties (gets both api and db properties)
-#### GET /properties?search{params}
-#### GET /properties/{idProp}
-#### POST /properties
-#### DELETE /properties/:id
+__GET /properties__: Gets both, api and DB properties  
+__GET /properties/{idProp}__: Gets details of specific property  
+__GET /properties/db/:userID__: Gets ads of specific user  
+__POST /properties/db/:userID__: Post ad for a specific user  
+__DELETE /properties/db/:adID:__ Deletes specific property from DB
 
-### authentication
-#### POST /users/signup
-#### POST /users/login
+### Authentication
+__POST /users/signup__  
+__POST /users/login__
 
 ## Current Progress
 ### `Backend`
@@ -67,7 +67,7 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 - [x] Authentication
 - [x] Pagination
 - [x] Creation Form
-- [ ] Responsive
+- [x] Responsive
 ### `Test`
 - [ ] Database
 - [ ] Models, rendering

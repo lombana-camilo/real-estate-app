@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AdCard = ({ ads, fromUser=false, removeAd }) => {
 
   return (
-    <div className="flex flex-wrap mx-9">
+    <div className="flex flex-wrap justify-center">
       {ads.map((ad) => {
         return (
           <div key={ad.id} className="flex flex-col w-64 h-72 m-3 bg-primary/10 justify-center items-center rounded-md p-2">

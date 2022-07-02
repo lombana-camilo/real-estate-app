@@ -19,8 +19,8 @@ const Details = () => {
   return (
     <>
       {ad.length !== 0 ? (
-        <div key={ad.id} className="flex pt-10 w-full h-screen overflow-auto px-5 gap-5">
-               <div className="float-left w-1/2 h-2/3" >
+        <div key={ad.id} className="flex-col md:flex-row pt-14 w-full h-screen overflow-auto px-5 gap-5 pb-14">
+               <div className="md:float-left w-full md:w-1/2 md:h-2/3" >
                {/* <div className="fixed top-14 w-1/2" > */}
                   <Splide className=""
                      options={{
@@ -33,8 +33,8 @@ const Details = () => {
                      }}
                   >
                      {ad.photos.map((p, key) => (
-                        <SplideSlide key={key} >
-                           <img src={p} alt="cover pic" className=" h-fit w-full" />
+                        <SplideSlide key={key} className="max-h-96 ">
+                           <img src={p} alt="cover pic" className="h-full mx-auto" />
                         </SplideSlide>
                      ))}
                   </Splide>
@@ -52,8 +52,8 @@ const Details = () => {
                      <p className="font-semibold text-lg text-primary/70"> AED ${ad.price} </p>
                   </div>
                </div>
-               <div className="w-1/2 overflow-auto text-justify px-10">
-                  <div className="bg-secondary/20">
+               <div className="md:w-1/2 overflow-auto text-justify px-1 md:px-10">
+                  <div className="bg-secondary/20 rounded-md p-3">
                      <p><strong>Contact: </strong>{ ad.contactName }</p>
                      <p><strong>Phone: </strong>{ ad.contactPhone }</p>
                   </div>

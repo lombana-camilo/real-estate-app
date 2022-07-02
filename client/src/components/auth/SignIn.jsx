@@ -26,7 +26,7 @@ const SignIn = () => {
    },[currentUser,navigate])
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col justify-around inset-y-64 inset-x-1/3 absolute top-36">
+    <form onSubmit={onSubmit} className="flex flex-col justify-around inset-y-64 inset-x-1/4 md:inset-x-1/3 absolute top-36">
       <h5 className="text-2xl font-bold">Sign In</h5>
       <label>Email 
             <input className="w-full" ref={initialFocus} type="email" name="email" placeholder="sample@gmail.com" onChange={handleSignUp}/>
