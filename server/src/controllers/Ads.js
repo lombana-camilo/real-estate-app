@@ -66,13 +66,17 @@ const Ads = {
   },
 
   createAd: async (req, res) => {
-    const formData = req.body;
-    const { email } = req.params;
-    const user = await User.findOne({ where: { email } });
-    const newAd = await Property.create(formData);
-    await user.addProperty(newAd);
-
-    res.send(newAd);
+    try {
+      const formData = req.body;
+      const { email } = req.params;
+      const user = await User.findOne({ where: { email } });
+      const newAd = await Property.create(formData);
+      await user.addProperty(newAd);
+      res.send(newAd);
+    } catch (e) {
+         console.log({e})
+      res.status(400).send(e);
+    }
   },
 
   deleteAd: async (req, res) => {
@@ -82,4 +86,4 @@ const Ads = {
   },
 };
 
-export default Ads
+export default Ads;
