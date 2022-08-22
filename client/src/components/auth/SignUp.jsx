@@ -43,7 +43,7 @@ const initialFocus = useRef()
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col justify-around inset-y-64 inset-x-1/4 md:inset-x-1/3 absolute top-36 gap-5" >
+    <form autoComplete="off" onSubmit={onSubmit} className="flex flex-col justify-around inset-y-64 inset-x-1/4 md:inset-x-1/3 absolute top-36 gap-5" >
       <h5 className="text-2xl font-bold">Sign Up</h5>
       <label> Name <input ref={initialFocus} required className="w-full" type="text" name="name" onChange={handleSignUp} /> </label>
       <label> Email <input required className="w-full" type="email" name="email" placeholder="sample@gmail.com" onChange={handleSignUp} />

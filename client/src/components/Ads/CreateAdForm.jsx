@@ -24,7 +24,7 @@ const CreateAdForm = () => {
       let photoInput = document.querySelector("input[name='coverPhoto']")
       photoInput.value = ""
    }
-  return <form onSubmit={onSubmit} onChange={onChange} className="flex flex-col flex-wrap gap-3 bg-secondary p-3 mx-9 mt-3 rounded-md text-sm" >
+  return <form autoComplete="off" onSubmit={onSubmit} onChange={onChange} className="flex flex-col flex-wrap gap-3 bg-secondary p-3 mx-9 mt-3 rounded-md text-sm" >
          <div className="flex flex-col gap-2 w-full">
             <label className="w-full">Title <input type="text" name="title" className="w-5/6" required/></label>
             <textarea name="description"  rows="3" placeholder="Describe your Property..." required></textarea>

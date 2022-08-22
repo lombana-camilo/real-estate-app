@@ -5,19 +5,19 @@ Create a fullstack web application with authentication that enables the user to 
 
 ## Development Tools
 
+* Javascript
 * React
-* Redux
+* Redux ToolKit Store
+* Tailwind
 * Node Js
 * Express
 * Sequelize, Postgress
-* Axios,bcrypt,redux-toolkit
+* Axios,bcrypt
 
 ### `API`
 
 The data of the properties was retrieved from [Rapid API - Bayut](https://rapidapi.com/apidojo/api/bayut)
 
-<!-- ## Project Images -->
-<!-- Freely usable images were downloaded from [https://unsplash.com/](https://unsplash.com/) -->
 ## Features
 * The user can create and delete new ads of properties using its account
 * The user can filter properties by: purpose, rentFrequency, category, price, area, rooms, baths
@@ -31,7 +31,7 @@ The data of the properties was retrieved from [Rapid API - Bayut](https://rapida
 ### `Main Page`
 - Search bar with authentication options
 - Filtering options
-- Area to display the listed properties
+- All properties displayed
 - Pagination
 
 ### `Details Page`
@@ -50,17 +50,15 @@ __GET /properties/db/:userID__: Gets ads of specific user
 __POST /properties/db/:userID__: Post ad for a specific user  
 __DELETE /properties/db/:adID:__ Deletes specific property from DB
 
-### Authentication
-__POST /users/signup__  
-__POST /users/login__
-
-## Current Progress
+## Completed Progress
 ### `Backend`
 - [x] Set DB Models
 - [x] Set DB Relations
 - [x] Server Routing - Ads
 - [x] Server Routing - Authentication/Authorization
 ### `Frontend`
+- [x] Setup Redux Store and Query
+- [x] Setup Tailwind
 - [x] Landing
 - [x] Home
 - [x] Filters
@@ -68,7 +66,3 @@ __POST /users/login__
 - [x] Pagination
 - [x] Creation Form
 - [x] Responsive
-### `Test`
-- [ ] Database
-- [ ] Models, rendering
-- [ ] Front, components

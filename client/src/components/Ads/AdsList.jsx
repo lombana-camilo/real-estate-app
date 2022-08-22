@@ -8,7 +8,7 @@ const AdsList = () => {
   const { allAds, isLoading } = useSelector((store) => store.ads);
 
   return (
-    <div>
+    <div className="flex flex-col gap-12 ">
       <FilterForm />
       {isLoading ? (
         <IsLoading />

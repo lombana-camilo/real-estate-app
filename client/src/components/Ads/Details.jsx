@@ -19,17 +19,13 @@ const Details = () => {
   return (
     <>
       {ad.length !== 0 ? (
-        <div key={ad.id} className="flex-col md:flex-row pt-14 w-full h-screen overflow-auto px-5 gap-5 pb-14">
+        <div key={ad.id} className="flex-col  md:flex-row pt-14 w-full h-screen overflow-auto px-5 gap-5 pb-14">
                <div className="md:float-left w-full md:w-1/2 md:h-2/3" >
-               {/* <div className="fixed top-14 w-1/2" > */}
                   <Splide className=""
                      options={{
                         perPage:1,
-                        // type: "loop",
-                        // height: "70vh",
                         width: "80vw",
                         autoHeight: true,
-                        // autoWidth: true,
                      }}
                   >
                      {ad.photos.map((p, key) => (
