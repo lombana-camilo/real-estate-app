@@ -1,4 +1,6 @@
 # Fullstack Project - Real Estate App
+[Website Deploy](http://real-estate-app-kappa-three.vercel.app/) , 
+[Video Demo](https://youtu.be/N66J2yqLtxA)
 
 ## Main Objective
 Create a fullstack web application with authentication that enables the user to list properties for rent or sale, filter the results and create their own ads of a new property
