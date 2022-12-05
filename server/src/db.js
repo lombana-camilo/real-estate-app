@@ -7,7 +7,7 @@ const { DB_USER, DB_HOST, DB_NAME, DB_PASSWORD } = process.env;
 
 //Settings of sequelize for Heroku Deploy
 let db =
-  process.env.NODE_ENV === "production"
+  // process.env.NODE_ENV === "production"
     // ? new Sequelize({
     //     database: DB_NAME,
     //     dialect: "postgres",
